@@ -601,45 +601,92 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
         ดูสูตรและแบบจำลอง
       </button>
 
-      <div class="formula-chip">
+      <!-- Formula selector -->
+      <div class="unit-toggle-wrap" style="margin-bottom:18px;">
+        <span class="unit-toggle-label">เลือกสูตรคำนวณ</span>
+        <div class="unit-toggle">
+          <button class="unit-toggle-btn" id="log-f-2510" onclick="setLogFormula('2510')">ระเบียบ พ.ศ. 2567</button>
+          <button class="unit-toggle-btn active" id="log-f-2564" onclick="setLogFormula('2564')">ตาราง พ.ศ. 2564</button>
+        </div>
+      </div>
+
+      <!-- Formula chip — dynamic -->
+      <div class="formula-chip" id="log-formula-chip">
         <div class="formula-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
         </div>
         <div class="formula-main">
-          <div class="formula-eq">V = 0.7875 × D² × L</div>
-          <div class="formula-vars">
-            <b>V</b> = ปริมาตร (ลบ.ม.) &nbsp;·&nbsp; <b>D</b> = เส้นผ่านศูนย์กลาง &nbsp;·&nbsp; <b>L</b> = ความยาว
+          <div class="formula-eq" id="log-formula-eq">V = 0.7875 × D² × L</div>
+          <div class="formula-vars" id="log-formula-vars"><b>D</b> = เส้นผ่านศูนย์กลาง (ม.) &nbsp;·&nbsp; <b>L</b> = ความยาว (ม.)</div>
+        </div>
+      </div>
+
+      <!-- Regulation badge -->
+      <div id="log-reg-note" style="display:none; background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.35); border-radius:10px; padding:10px 14px; margin-bottom:20px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
+        <b style="color:var(--gold);">ระเบียบกรมป่าไม้ พ.ศ. 2510 ข้อ 11(1)</b><br>
+        วัดความยาวจากปลายสุดถึงปลายสุด · วัดเส้นรอบวง (G) ที่ <b>กึ่งกลาง</b>ความยาวท่อน
+      </div>
+
+      <p class="input-section-title" id="log-input-title">กรอกข้อมูลการวัด</p>
+
+      <!-- Inputs — สูตร 2564 (D) -->
+      <div id="log-inputs-2564">
+        <div class="field-grid col2">
+          <div class="field has-unit">
+            <label>เส้นผ่านศูนย์กลาง (D)</label>
+            <input type="number" id="log-d" placeholder="0.00" step="0.001" min="0" oninput="calcLog()">
+            <span class="field-unit-tag" id="log-d-utag">ม.</span>
+          </div>
+          <div class="field">
+            <label>หน่วย D</label>
+            <select id="log-d-unit" onchange="updateLogUnits(); calcLog()">
+              <option value="m">เมตร (ม.)</option>
+              <option value="cm">เซนติเมตร (ซม.)</option>
+              <option value="in">นิ้ว (in)</option>
+            </select>
+          </div>
+          <div class="field has-unit">
+            <label>ความยาวท่อนไม้ (L)</label>
+            <input type="number" id="log-l" placeholder="0.00" step="0.01" min="0" oninput="calcLog()">
+            <span class="field-unit-tag" id="log-l-utag">ม.</span>
+          </div>
+          <div class="field">
+            <label>หน่วย L</label>
+            <select id="log-l-unit" onchange="updateLogUnits(); calcLog()">
+              <option value="m">เมตร (ม.)</option>
+              <option value="cm">เซนติเมตร (ซม.)</option>
+            </select>
           </div>
         </div>
       </div>
 
-      <p class="input-section-title">กรอกข้อมูลการวัด</p>
-
-      <div class="field-grid col2">
-        <div class="field has-unit">
-          <label>เส้นผ่านศูนย์กลาง (D)</label>
-          <input type="number" id="log-d" placeholder="0.00" step="0.001" min="0" oninput="calcLog()">
-          <span class="field-unit-tag" id="log-d-utag">ม.</span>
-        </div>
-        <div class="field">
-          <label>หน่วย D</label>
-          <select id="log-d-unit" onchange="updateLogUnits(); calcLog()">
-            <option value="m">เมตร (ม.)</option>
-            <option value="cm">เซนติเมตร (ซม.)</option>
-            <option value="in">นิ้ว (in)</option>
-          </select>
-        </div>
-        <div class="field has-unit">
-          <label>ความยาวท่อนไม้ (L)</label>
-          <input type="number" id="log-l" placeholder="0.00" step="0.01" min="0" oninput="calcLog()">
-          <span class="field-unit-tag" id="log-l-utag">ม.</span>
-        </div>
-        <div class="field">
-          <label>หน่วย L</label>
-          <select id="log-l-unit" onchange="updateLogUnits(); calcLog()">
-            <option value="m">เมตร (ม.)</option>
-            <option value="cm">เซนติเมตร (ซม.)</option>
-          </select>
+      <!-- Inputs — สูตร 2510 (G) -->
+      <div id="log-inputs-2510" style="display:none;">
+        <div class="field-grid col2">
+          <div class="field has-unit">
+            <label>เส้นรอบวงกึ่งกลางท่อน (G)</label>
+            <input type="number" id="log-g" placeholder="0.00" step="0.001" min="0" oninput="calcLog()">
+            <span class="field-unit-tag" id="log-g-utag">ม.</span>
+          </div>
+          <div class="field">
+            <label>หน่วย G</label>
+            <select id="log-g-unit" onchange="updateLogUnits(); calcLog()">
+              <option value="m">เมตร (ม.)</option>
+              <option value="cm">เซนติเมตร (ซม.)</option>
+            </select>
+          </div>
+          <div class="field has-unit">
+            <label>ความยาวท่อนไม้ (L)</label>
+            <input type="number" id="log-l2" placeholder="0.00" step="0.01" min="0" oninput="calcLog()">
+            <span class="field-unit-tag" id="log-l2-utag">ม.</span>
+          </div>
+          <div class="field">
+            <label>หน่วย L</label>
+            <select id="log-l2-unit" onchange="updateLogUnits(); calcLog()">
+              <option value="m">เมตร (ม.)</option>
+              <option value="cm">เซนติเมตร (ซม.)</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -651,9 +698,9 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
       <div class="divider"></div>
 
       <div class="result-area">
-        <div class="result-empty" id="log-empty">กรอกค่า D และ L เพื่อคำนวณ</div>
+        <div class="result-empty" id="log-empty">เลือกสูตรและกรอกค่าเพื่อคำนวณ</div>
         <div class="result-content" id="log-result" style="display:none;">
-          <div class="result-label-text">ปริมาตรไม้ท่อน</div>
+          <div class="result-label-text" id="log-result-label">ปริมาตรไม้ท่อน</div>
           <div class="result-number-row">
             <div class="result-number" id="log-v">—</div>
             <div class="result-unit-text">ลูกบาศก์เมตร</div>
@@ -664,7 +711,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     </div>
     <div class="source-strip" id="source-log">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      อ้างอิง: ตารางสำเร็จปริมาตรไม้ท่อน กรมป่าไม้ (2564) &nbsp;·&nbsp;
+      <span id="log-source-text">อ้างอิง: ตารางสำเร็จปริมาตรไม้ท่อน กรมป่าไม้ (2564)</span> &nbsp;·&nbsp;
       <a href="https://www.forest.go.th" target="_blank">forest.go.th</a>
     </div>
 
@@ -1096,35 +1143,103 @@ function fmt(v, dec) {
 }
 
 // ── LOG ──
-function updateLogUnits() {
-  const du = document.getElementById('log-d-unit').value;
-  const lu = document.getElementById('log-l-unit').value;
-  const dmap = {m:'ม.',cm:'ซม.',in:'นิ้ว'};
-  const lmap = {m:'ม.',cm:'ซม.'};
-  document.getElementById('log-d-utag').textContent = dmap[du];
-  document.getElementById('log-l-utag').textContent = lmap[lu];
-}
-function calcLog() {
-  const dRaw = parseFloat(document.getElementById('log-d').value);
-  const lRaw = parseFloat(document.getElementById('log-l').value);
-  const dUnit = document.getElementById('log-d-unit').value;
-  const lUnit = document.getElementById('log-l-unit').value;
-  const errEl = document.getElementById('log-err');
-  const emptyEl = document.getElementById('log-empty');
-  const resEl = document.getElementById('log-result');
+let logFormula = '2564'; // '2564' = D-based, '2510' = G-based
 
-  if (isNaN(dRaw) || isNaN(lRaw) || dRaw<=0 || lRaw<=0) {
-    errEl.classList.toggle('show', (!isNaN(dRaw)&&dRaw<0)||(!isNaN(lRaw)&&lRaw<0));
+function setLogFormula(f) {
+  logFormula = f;
+  const is2510 = f === '2510';
+  document.getElementById('log-f-2510').classList.toggle('active', is2510);
+  document.getElementById('log-f-2564').classList.toggle('active', !is2510);
+
+  // Show/hide input blocks
+  document.getElementById('log-inputs-2510').style.display = is2510 ? 'block' : 'none';
+  document.getElementById('log-inputs-2564').style.display = is2510 ? 'none' : 'block';
+
+  // Show/hide regulation note
+  document.getElementById('log-reg-note').style.display = is2510 ? 'block' : 'none';
+
+  // Update formula chip
+  if (is2510) {
+    document.getElementById('log-formula-eq').textContent = 'V = 0.0795 × G² × L';
+    document.getElementById('log-formula-vars').innerHTML = '<b>G</b> = เส้นรอบวงกึ่งกลางท่อน (ม.) &nbsp;·&nbsp; <b>L</b> = ความยาว (ม.)';
+    document.getElementById('log-source-text').textContent = 'อ้างอิง: ระเบียบกรมป่าไม้ ว่าด้วยการตรวจวัด พ.ศ. 2510 ข้อ 11(1)';
+    document.getElementById('log-empty').textContent = 'กรอกค่า G และ L เพื่อคำนวณ';
+    document.getElementById('log-result-label').textContent = 'ปริมาตรไม้ท่อน (ระเบียบ พ.ศ. 2510)';
+  } else {
+    document.getElementById('log-formula-eq').textContent = 'V = 0.7875 × D² × L';
+    document.getElementById('log-formula-vars').innerHTML = '<b>D</b> = เส้นผ่านศูนย์กลาง (ม.) &nbsp;·&nbsp; <b>L</b> = ความยาว (ม.)';
+    document.getElementById('log-source-text').textContent = 'อ้างอิง: ตารางสำเร็จปริมาตรไม้ท่อน กรมป่าไม้ (2564)';
+    document.getElementById('log-empty').textContent = 'กรอกค่า D และ L เพื่อคำนวณ';
+    document.getElementById('log-result-label').textContent = 'ปริมาตรไม้ท่อน (ตาราง พ.ศ. 2564)';
+  }
+
+  // Reset result
+  document.getElementById('log-empty').style.display = 'block';
+  document.getElementById('log-result').style.display = 'none';
+  document.getElementById('log-err').classList.remove('show');
+}
+
+function updateLogUnits() {
+  const lmap = {m:'ม.',cm:'ซม.'};
+  if (logFormula === '2564') {
+    const du = document.getElementById('log-d-unit').value;
+    const lu = document.getElementById('log-l-unit').value;
+    const dmap = {m:'ม.',cm:'ซม.',in:'นิ้ว'};
+    document.getElementById('log-d-utag').textContent = dmap[du];
+    document.getElementById('log-l-utag').textContent = lmap[lu];
+  } else {
+    const gu = document.getElementById('log-g-unit').value;
+    const lu = document.getElementById('log-l2-unit').value;
+    document.getElementById('log-g-utag').textContent = lmap[gu];
+    document.getElementById('log-l2-utag').textContent = lmap[lu];
+  }
+}
+
+function calcLog() {
+  const errEl  = document.getElementById('log-err');
+  const emptyEl= document.getElementById('log-empty');
+  const resEl  = document.getElementById('log-result');
+  let V, breakdown, hasError, isNegative;
+
+  if (logFormula === '2564') {
+    const dRaw = parseFloat(document.getElementById('log-d').value);
+    const lRaw = parseFloat(document.getElementById('log-l').value);
+    const dUnit = document.getElementById('log-d-unit').value;
+    const lUnit = document.getElementById('log-l-unit').value;
+    isNegative = (!isNaN(dRaw)&&dRaw<0)||(!isNaN(lRaw)&&lRaw<0);
+    hasError = isNaN(dRaw)||isNaN(lRaw)||dRaw<=0||lRaw<=0;
+    if (!hasError) {
+      const D = toM(dRaw, dUnit);
+      const L = toM(lRaw, lUnit);
+      V = 0.7875 * D * D * L;
+      breakdown = `D = <span>${D.toFixed(4)} ม.</span> &nbsp;·&nbsp; L = <span>${L.toFixed(4)} ม.</span><br>` +
+                  `0.7875 × ${D.toFixed(4)}² × ${L.toFixed(4)} = <span>${fmt(V)} ลบ.ม.</span>`;
+    }
+  } else {
+    const gRaw = parseFloat(document.getElementById('log-g').value);
+    const lRaw = parseFloat(document.getElementById('log-l2').value);
+    const gUnit = document.getElementById('log-g-unit').value;
+    const lUnit = document.getElementById('log-l2-unit').value;
+    isNegative = (!isNaN(gRaw)&&gRaw<0)||(!isNaN(lRaw)&&lRaw<0);
+    hasError = isNaN(gRaw)||isNaN(lRaw)||gRaw<=0||lRaw<=0;
+    if (!hasError) {
+      const G = toM(gRaw, gUnit);
+      const L = toM(lRaw, lUnit);
+      V = 0.0795 * G * G * L;
+      // also show G/49 × L equivalent
+      const G49 = (G * G / 49) * L;
+      breakdown = `G = <span>${G.toFixed(4)} ม.</span> &nbsp;·&nbsp; L = <span>${L.toFixed(4)} ม.</span><br>` +
+                  `0.0795 × ${G.toFixed(4)}² × ${L.toFixed(4)} = <span>${fmt(V)} ลบ.ม.</span>`;
+    }
+  }
+
+  if (hasError) {
+    errEl.classList.toggle('show', isNegative);
     emptyEl.style.display='block'; resEl.style.display='none'; return;
   }
   errEl.classList.remove('show');
-  const D = toM(dRaw, dUnit);
-  const L = toM(lRaw, lUnit);
-  const V = 0.7875 * D * D * L;
   document.getElementById('log-v').textContent = fmt(V);
-  document.getElementById('log-breakdown').innerHTML =
-    `D = <span>${D.toFixed(4)} ม.</span> &nbsp;·&nbsp; L = <span>${L.toFixed(4)} ม.</span><br>` +
-    `0.7875 × ${D.toFixed(4)}² × ${L.toFixed(4)} = <span>${fmt(V)} ลบ.ม.</span>`;
+  document.getElementById('log-breakdown').innerHTML = breakdown;
   emptyEl.style.display='none'; resEl.style.display='block';
 }
 
