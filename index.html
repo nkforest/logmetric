@@ -457,18 +457,101 @@ footer a { color: var(--sage); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  .panel { padding: 24px 20px 20px; }
-  .divider { margin: 0 -20px 24px; }
-  .source-strip { padding: 14px 20px; }
+/* ── iOS / Touch improvements ── */
+@media (hover: none) {
+  .btn-info:hover { background: transparent; color: var(--forest-mid); border-color: var(--border); }
+  .tab-btn:hover:not(.active) { background: transparent; color: var(--text-secondary); }
+}
+button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+input[type=number] { -moz-appearance: textfield; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 700px) {
+  .page-wrap { padding: 0 16px 60px; }
+  .info-row { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .info-card { padding: 14px 10px; }
+  .info-card-title { font-size: 10px; }
+  .info-card-val { font-size: 13px; }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 540px) {
+  /* Layout */
+  .page-wrap { padding: 0 12px 56px; }
+
+  /* Header */
+  header { padding: 36px 0 32px; }
+  .header-badge { font-size: 10px; letter-spacing: 1.5px; padding: 6px 14px; }
+  h1 { font-size: 26px; }
+  .header-sub { font-size: 13px; }
+
+  /* Tabs — icon only on very small, show text on normal mobile */
+  .tab-rail { gap: 4px; padding: 4px; }
+  .tab-btn { font-size: 12px; padding: 10px 4px; gap: 5px; }
+  .tab-btn svg { width: 16px; height: 16px; }
+
+  /* Card panels */
+  .panel { padding: 20px 16px 16px; }
+  .divider { margin: 0 -16px 20px; }
+  .source-strip { padding: 12px 16px; font-size: 11px; flex-wrap: wrap; gap: 4px; }
+
+  /* Formula chip */
+  .formula-chip { padding: 14px 16px; gap: 10px; margin-bottom: 22px; }
+  .formula-icon { width: 30px; height: 30px; flex-shrink: 0; }
+  .formula-icon svg { width: 15px; height: 15px; }
+  .formula-eq { font-size: 14px; }
+  .formula-vars { font-size: 11px; }
+
+  /* Fields — all single column on mobile */
+  .field-grid.col2 { grid-template-columns: 1fr; }
   .field-grid.col3 { grid-template-columns: 1fr 1fr; }
-  .info-row { grid-template-columns: 1fr; }
-  h1 { font-size: 28px; }
-  .result-number { font-size: 36px; }
-  .modal-header { padding: 22px 22px 18px; }
-  .modal-body { padding: 22px 22px 24px; }
-  .tab-btn { font-size: 12px; padding: 11px 4px; }
+  .field input, .field select { height: 44px; font-size: 16px; /* prevent iOS zoom */ }
+
+  /* Unit toggle */
+  .unit-toggle-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* Btn info */
+  .btn-info { font-size: 12px; padding: 7px 14px; margin-bottom: 20px; }
+
+  /* Result */
+  .result-area { padding: 22px 20px 18px; }
+  .result-number { font-size: 34px; }
+  .result-unit-text { font-size: 13px; }
+  .result-breakdown { font-size: 12px; }
+  .result-empty { font-size: 13px; }
+
+  /* Info row */
+  .info-row { grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
+  .info-card { display: flex; align-items: center; gap: 12px; text-align: left; padding: 14px 16px; }
+  .info-card-icon { margin: 0; flex-shrink: 0; width: 36px; height: 36px; }
+  .info-card-title { margin-bottom: 2px; }
+
+  /* Modal */
+  .modal-overlay { padding: 12px; align-items: flex-end; }
+  .modal-box { border-radius: 20px 20px 16px 16px; max-height: 90vh; overflow-y: auto; }
+  .modal-header { padding: 20px 20px 16px; }
+  .modal-title { font-size: 18px; }
+  .modal-body { padding: 20px 20px 24px; }
+  .modal-desc { font-size: 13px; margin-bottom: 18px; }
+  .modal-formula-block { padding: 14px 16px; }
+  .modal-formula-eq { font-size: 14px; }
+  .modal-formula-vars { font-size: 12px; }
+
+  /* SVG models — scale down */
+  .log-svg { width: 100%; height: auto; max-width: 280px; }
+  .model-section svg { max-width: 100%; height: auto; }
+}
+
+/* ── Responsive: Very small (iPhone SE, 375px) ── */
+@media (max-width: 390px) {
+  h1 { font-size: 22px; }
+  .tab-btn span { display: none; } /* hide text, show only icon */
+  .tab-btn { padding: 10px 0; justify-content: center; }
+  .formula-eq { font-size: 13px; word-break: break-all; }
+  .field-grid.col3 { grid-template-columns: 1fr; }
+  .result-number { font-size: 30px; }
 }
 </style>
 </head>
@@ -496,15 +579,15 @@ footer a { color: var(--sage); }
   <div class="tab-rail" role="tablist">
     <button class="tab-btn active" onclick="switchTab('log')" role="tab">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/></svg>
-      ไม้ท่อน
+      <span>ไม้ท่อน</span>
     </button>
     <button class="tab-btn" onclick="switchTab('lumber')" role="tab">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="10" rx="1"/><line x1="6" y1="7" x2="6" y2="17"/><line x1="18" y1="7" x2="18" y2="17"/></svg>
-      ไม้แปรรูป
+      <span>ไม้แปรรูป</span>
     </button>
     <button class="tab-btn" onclick="switchTab('standing')" role="tab">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12m0 0C12 7 6 5 6 5s2 4 6 7m0-7c0-5 6-3 6-3s-2 4-6 6"/></svg>
-      ไม้ยืนต้น
+      <span>ไม้ยืนต้น</span>
     </button>
   </div>
 
