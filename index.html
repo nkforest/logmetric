@@ -43,7 +43,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Background decoration ── */
 .bg-canvas {
   position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
 }
@@ -62,7 +61,6 @@ body {
   opacity: 0.025;
 }
 
-/* ── Layout ── */
 .page-wrap {
   position: relative; z-index: 1;
   max-width: 780px;
@@ -70,7 +68,6 @@ body {
   padding: 0 24px 80px;
 }
 
-/* ── Header ── */
 header {
   padding: 56px 0 48px;
   text-align: center;
@@ -100,7 +97,6 @@ h1 span { color: var(--gold); }
   line-height: 1.6;
 }
 
-/* ── Tab selector ── */
 .tab-rail {
   display: flex; gap: 6px;
   background: rgba(26,58,42,0.06);
@@ -130,7 +126,6 @@ h1 span { color: var(--gold); }
 }
 .tab-btn:hover:not(.active) { background: rgba(255,255,255,0.5); color: var(--forest); }
 
-/* ── Main card ── */
 .calc-card {
   background: var(--card-bg);
   backdrop-filter: blur(20px);
@@ -141,11 +136,9 @@ h1 span { color: var(--gold); }
   animation: fadeUp 0.8s 0.25s ease both;
 }
 
-/* ── Panel ── */
 .panel { display: none; padding: 36px 36px 32px; }
 .panel.active { display: block; }
 
-/* ── Formula chip ── */
 .formula-chip {
   display: flex; align-items: flex-start; gap: 14px;
   background: var(--forest);
@@ -172,7 +165,6 @@ h1 span { color: var(--gold); }
 .formula-vars { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 300; }
 .formula-vars b { color: rgba(255,255,255,0.9); font-weight: 500; }
 
-/* ── Input section ── */
 .input-section-title {
   font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--text-muted); font-weight: 600;
@@ -224,7 +216,6 @@ h1 span { color: var(--gold); }
   padding-right: 36px; cursor: pointer;
 }
 
-/* ── Unit toggle (lumber) ── */
 .unit-toggle-wrap {
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 20px;
@@ -248,10 +239,8 @@ h1 span { color: var(--gold); }
   box-shadow: 0 1px 6px rgba(26,58,42,0.1);
 }
 
-/* ── Divider ── */
 .divider { height: 1px; background: var(--border); margin: 0 -36px 28px; }
 
-/* ── Result area ── */
 .result-area {
   background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
   border-radius: var(--radius);
@@ -297,7 +286,6 @@ h1 span { color: var(--gold); }
 }
 .result-breakdown span { color: var(--gold-light); font-weight: 500; }
 
-/* ── Error ── */
 .err-msg {
   display: none; align-items: center; gap: 8px;
   font-size: 13px; color: #c0392b;
@@ -308,7 +296,6 @@ h1 span { color: var(--gold); }
 .err-msg svg { width: 16px; height: 16px; flex-shrink: 0; }
 .err-msg.show { display: flex; }
 
-/* ── Footer ── */
 .source-strip {
   display: flex; align-items: center; gap: 8px;
   padding: 16px 36px;
@@ -318,7 +305,6 @@ h1 span { color: var(--gold); }
 .source-strip a { color: var(--forest-light); text-decoration: none; }
 .source-strip a:hover { text-decoration: underline; }
 
-/* ── Info cards row ── */
 .info-row {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
   margin-top: 20px;
@@ -341,7 +327,6 @@ h1 span { color: var(--gold); }
 .info-card-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
 .info-card-val { font-size: 15px; font-weight: 500; color: var(--forest); }
 
-/* ── Modal ── */
 .modal-overlay {
   display: none; position: fixed; inset: 0;
   background: rgba(10,20,15,0.6);
@@ -363,7 +348,6 @@ h1 span { color: var(--gold); }
   background: var(--forest); padding: 28px 32px 24px;
   display: flex; align-items: flex-start; justify-content: space-between;
 }
-.modal-header-text {}
 .modal-badge {
   display: inline-block;
   font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
@@ -399,7 +383,6 @@ h1 span { color: var(--gold); }
 .modal-ref { font-size: 12px; color: var(--text-muted); }
 .modal-ref a { color: var(--forest-light); }
 
-/* ── 3D Log Model ── */
 .model-section {
   text-align: center; padding: 20px 0 0;
 }
@@ -408,18 +391,7 @@ h1 span { color: var(--gold); }
   position: relative;
 }
 .log-svg { filter: drop-shadow(0 12px 30px rgba(26,58,42,0.2)); }
-.log-label {
-  position: absolute; font-size: 11px; font-weight: 600;
-  color: var(--forest); letter-spacing: 0.5px;
-  background: var(--white);
-  padding: 3px 9px; border-radius: 100px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  pointer-events: none;
-}
-.label-d { top: 45%; left: -10px; transform: translateY(-50%); }
-.label-l { bottom: 2px; left: 50%; transform: translateX(-50%); }
 
-/* ── Btn info ── */
 .btn-info {
   display: inline-flex; align-items: center; gap: 7px;
   background: transparent;
@@ -436,7 +408,6 @@ h1 span { color: var(--gold); }
 .btn-info:hover { background: var(--forest); color: var(--white); border-color: var(--forest); }
 .btn-info svg { width: 15px; height: 15px; }
 
-/* ── Footer ── */
 footer {
   text-align: center; padding: 40px 0 0;
   font-size: 12px; color: var(--text-muted);
@@ -444,7 +415,6 @@ footer {
 }
 footer a { color: var(--sage); }
 
-/* ── Animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -457,7 +427,6 @@ footer a { color: var(--sage); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* ── iOS / Touch improvements ── */
 @media (hover: none) {
   .btn-info:hover { background: transparent; color: var(--forest-mid); border-color: var(--border); }
   .tab-btn:hover:not(.active) { background: transparent; color: var(--text-secondary); }
@@ -467,7 +436,6 @@ input[type=number] { -moz-appearance: textfield; }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 
-/* ── Responsive: Tablet ── */
 @media (max-width: 700px) {
   .page-wrap { padding: 0 16px 60px; }
   .info-row { grid-template-columns: repeat(3,1fr); gap: 8px; }
@@ -476,59 +444,37 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
   .info-card-val { font-size: 13px; }
 }
 
-/* ── Responsive: Mobile ── */
 @media (max-width: 540px) {
-  /* Layout */
   .page-wrap { padding: 0 12px 56px; }
-
-  /* Header */
   header { padding: 36px 0 32px; }
   .header-badge { font-size: 10px; letter-spacing: 1.5px; padding: 6px 14px; }
   h1 { font-size: 26px; }
   .header-sub { font-size: 13px; }
-
-  /* Tabs — icon only on very small, show text on normal mobile */
   .tab-rail { gap: 4px; padding: 4px; }
   .tab-btn { font-size: 12px; padding: 10px 4px; gap: 5px; }
   .tab-btn svg { width: 16px; height: 16px; }
-
-  /* Card panels */
   .panel { padding: 20px 16px 16px; }
   .divider { margin: 0 -16px 20px; }
   .source-strip { padding: 12px 16px; font-size: 11px; flex-wrap: wrap; gap: 4px; }
-
-  /* Formula chip */
   .formula-chip { padding: 14px 16px; gap: 10px; margin-bottom: 22px; }
   .formula-icon { width: 30px; height: 30px; flex-shrink: 0; }
   .formula-icon svg { width: 15px; height: 15px; }
   .formula-eq { font-size: 14px; }
   .formula-vars { font-size: 11px; }
-
-  /* Fields — all single column on mobile */
   .field-grid.col2 { grid-template-columns: 1fr; }
   .field-grid.col3 { grid-template-columns: 1fr 1fr; }
-  .field input, .field select { height: 44px; font-size: 16px; /* prevent iOS zoom */ }
-
-  /* Unit toggle */
+  .field input, .field select { height: 44px; font-size: 16px; }
   .unit-toggle-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
-
-  /* Btn info */
   .btn-info { font-size: 12px; padding: 7px 14px; margin-bottom: 20px; }
-
-  /* Result */
   .result-area { padding: 22px 20px 18px; }
   .result-number { font-size: 34px; }
   .result-unit-text { font-size: 13px; }
   .result-breakdown { font-size: 12px; }
   .result-empty { font-size: 13px; }
-
-  /* Info row */
   .info-row { grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
   .info-card { display: flex; align-items: center; gap: 12px; text-align: left; padding: 14px 16px; }
   .info-card-icon { margin: 0; flex-shrink: 0; width: 36px; height: 36px; }
   .info-card-title { margin-bottom: 2px; }
-
-  /* Modal */
   .modal-overlay { padding: 12px; align-items: flex-end; }
   .modal-box { border-radius: 20px 20px 16px 16px; max-height: 90vh; overflow-y: auto; }
   .modal-header { padding: 20px 20px 16px; }
@@ -538,16 +484,13 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
   .modal-formula-block { padding: 14px 16px; }
   .modal-formula-eq { font-size: 14px; }
   .modal-formula-vars { font-size: 12px; }
-
-  /* SVG models — scale down */
   .log-svg { width: 100%; height: auto; max-width: 280px; }
   .model-section svg { max-width: 100%; height: auto; }
 }
 
-/* ── Responsive: Very small (iPhone SE, 375px) ── */
 @media (max-width: 390px) {
   h1 { font-size: 22px; }
-  .tab-btn span { display: none; } /* hide text, show only icon */
+  .tab-btn span { display: none; }
   .tab-btn { padding: 10px 0; justify-content: center; }
   .formula-eq { font-size: 13px; word-break: break-all; }
   .field-grid.col3 { grid-template-columns: 1fr; }
@@ -565,7 +508,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 
 <div class="page-wrap">
 
-  <!-- Header -->
   <header>
     <div class="header-badge">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 1 0 18M12 2a9 9 0 0 0 0 18M12 2v18M2 12h20"/></svg>
@@ -575,7 +517,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     <p class="header-sub">ระบบคำนวณปริมาตรไม้ตามมาตรฐานกรมป่าไม้<br>รองรับทั้งไม้ท่อน ไม้แปรรูป และไม้ยืนต้น</p>
   </header>
 
-  <!-- Tab rail -->
   <div class="tab-rail" role="tablist">
     <button class="tab-btn active" onclick="switchTab('log')" role="tab">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/></svg>
@@ -591,37 +532,34 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     </button>
   </div>
 
-  <!-- Calc card -->
   <div class="calc-card">
 
-    <!-- ═══ LOG PANEL ═══ -->
+    <!-- LOG PANEL -->
     <div class="panel active" id="panel-log">
       <button class="btn-info" onclick="openModal('log')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         ดูสูตรและแบบจำลอง
       </button>
 
-      <!-- Formula selector -->
       <div class="unit-toggle-wrap" style="margin-bottom:18px;">
         <span class="unit-toggle-label">เลือกสูตรคำนวณ</span>
         <div class="unit-toggle">
-          <button class="unit-toggle-btn" id="log-f-2510" onclick="setLogFormula('2510')">ระเบียบ พ.ศ. 2567</button>
+          <button class="unit-toggle-btn" id="log-f-2510" onclick="setLogFormula('2510')">ระเบียบ พ.ศ. 2510</button>
           <button class="unit-toggle-btn active" id="log-f-2564" onclick="setLogFormula('2564')">ตาราง พ.ศ. 2564</button>
         </div>
       </div>
 
-      <!-- Formula chip — dynamic -->
       <div class="formula-chip" id="log-formula-chip">
         <div class="formula-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
         </div>
         <div class="formula-main">
-          <div class="formula-eq" id="log-formula-eq">V = 0.7875 × D² × L</div>
+          <!-- ✅ แก้ไข: 0.7875 → 0.7854 (π/4 ที่ถูกต้องตามเอกสารกรมป่าไม้) -->
+          <div class="formula-eq" id="log-formula-eq">V = 0.7854 × D² × L</div>
           <div class="formula-vars" id="log-formula-vars"><b>D</b> = เส้นผ่านศูนย์กลาง (ม.) &nbsp;·&nbsp; <b>L</b> = ความยาว (ม.)</div>
         </div>
       </div>
 
-      <!-- Regulation badge -->
       <div id="log-reg-note" style="display:none; background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.35); border-radius:10px; padding:10px 14px; margin-bottom:20px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
         <b style="color:var(--gold);">ระเบียบกรมป่าไม้ พ.ศ. 2510 ข้อ 11(1)</b><br>
         วัดความยาวจากปลายสุดถึงปลายสุด · วัดเส้นรอบวง (G) ที่ <b>กึ่งกลาง</b>ความยาวท่อน
@@ -629,7 +567,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 
       <p class="input-section-title" id="log-input-title">กรอกข้อมูลการวัด</p>
 
-      <!-- Inputs — สูตร 2564 (D) -->
       <div id="log-inputs-2564">
         <div class="field-grid col2">
           <div class="field has-unit">
@@ -660,7 +597,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
         </div>
       </div>
 
-      <!-- Inputs — สูตร 2510 (G) -->
       <div id="log-inputs-2510" style="display:none;">
         <div class="field-grid col2">
           <div class="field has-unit">
@@ -715,7 +651,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
       <a href="https://www.forest.go.th" target="_blank">forest.go.th</a>
     </div>
 
-    <!-- ═══ LUMBER PANEL ═══ -->
+    <!-- LUMBER PANEL -->
     <div class="panel" id="panel-lumber">
       <button class="btn-info" onclick="openModal('lumber')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -735,6 +671,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="10" rx="1"/><line x1="6" y1="7" x2="6" y2="17"/></svg>
         </div>
         <div class="formula-main">
+          <!-- ✅ สูตรไม้แปรรูปถูกต้องแล้วตามเอกสาร: กว้าง × หนา × ยาว × 0.0228 -->
           <div class="formula-eq" id="lumber-eq">V = หนา × กว้าง × ยาว × 0.0228</div>
           <div class="formula-vars" id="lumber-desc"><b>หนา/กว้าง</b> = นิ้ว &nbsp;·&nbsp; <b>ยาว</b> = เมตร &nbsp;·&nbsp; <b>V</b> = ลบ.ม.</div>
         </div>
@@ -784,7 +721,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
       อ้างอิง: ระเบียบกรมป่าไม้ว่าด้วยการรายงาน (2567)
     </div>
 
-    <!-- ═══ STANDING PANEL ═══ -->
+    <!-- STANDING PANEL -->
     <div class="panel" id="panel-standing">
       <button class="btn-info" onclick="openModal('standing')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -841,9 +778,8 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
       <a href="https://www.forest.go.th" target="_blank">forest.go.th</a>
     </div>
 
-  </div><!-- /calc-card -->
+  </div>
 
-  <!-- Info cards -->
   <div class="info-row">
     <div class="info-card">
       <div class="info-card-icon">
@@ -873,9 +809,9 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     <p style="margin-top:6px;">สูตรและค่าคงที่อ้างอิงจากเอกสารราชการ ปี 2564–2567</p>
   </footer>
 
-</div><!-- /page-wrap -->
+</div>
 
-<!-- ═══ MODAL LOG ═══ -->
+<!-- MODAL LOG -->
 <div class="modal-overlay" id="modal-log" onclick="closeModalOutside(event,'modal-log')">
   <div class="modal-box">
     <div class="modal-header">
@@ -890,7 +826,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     <div class="modal-body">
       <p class="modal-desc">ใช้สำหรับไม้ซุงหรือไม้ท่อนกลมที่ยังไม่ผ่านการแปรรูป วัดขนาดเส้นผ่านศูนย์กลางที่ปลายเล็กของท่อนไม้และความยาวทั้งหมด</p>
 
-      <!-- 3D Log Model SVG -->
       <div class="model-section" style="margin-bottom:24px;">
         <div class="model-canvas-wrap">
           <svg class="log-svg" width="320" height="160" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
@@ -910,35 +845,23 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
                 <stop offset="100%" stop-color="#4a7a4a"/>
               </linearGradient>
             </defs>
-            <!-- Shadow -->
             <ellipse cx="160" cy="148" rx="130" ry="12" fill="rgba(26,58,42,0.15)"/>
-            <!-- Log body cylinder -->
             <rect x="30" y="50" width="220" height="80" rx="0" fill="url(#logBody)"/>
-            <!-- Top face highlight -->
             <rect x="30" y="50" width="220" height="12" fill="url(#logTop)" rx="0"/>
-            <!-- Left end ellipse -->
             <ellipse cx="30" cy="90" rx="18" ry="40" fill="url(#logFace)"/>
-            <!-- Left end rings -->
             <ellipse cx="30" cy="90" rx="14" ry="30" fill="none" stroke="#4a7a4a" stroke-width="1.5" opacity="0.5"/>
             <ellipse cx="30" cy="90" rx="9" ry="20" fill="none" stroke="#4a7a4a" stroke-width="1" opacity="0.4"/>
             <ellipse cx="30" cy="90" rx="4" ry="9" fill="none" stroke="#4a7a4a" stroke-width="1" opacity="0.35"/>
-            <!-- Right end ellipse -->
             <ellipse cx="250" cy="90" rx="18" ry="40" fill="url(#logFace)"/>
-            <!-- Right end rings -->
             <ellipse cx="250" cy="90" rx="14" ry="30" fill="none" stroke="#4a7a4a" stroke-width="1.5" opacity="0.5"/>
             <ellipse cx="250" cy="90" rx="9" ry="20" fill="none" stroke="#4a7a4a" stroke-width="1" opacity="0.4"/>
             <ellipse cx="250" cy="90" rx="4" ry="9" fill="none" stroke="#4a7a4a" stroke-width="1" opacity="0.35"/>
-            <!-- Wood grain lines -->
             <line x1="30" y1="62" x2="250" y2="62" stroke="#4a7a4a" stroke-width="0.5" opacity="0.3"/>
             <line x1="30" y1="118" x2="250" y2="118" stroke="#1a3a1a" stroke-width="0.5" opacity="0.3"/>
-
-            <!-- D arrow (diameter) -->
             <line x1="8" y1="50" x2="8" y2="130" stroke="#c9a84c" stroke-width="1.5"/>
             <line x1="4" y1="50" x2="12" y2="50" stroke="#c9a84c" stroke-width="1.5"/>
             <line x1="4" y1="130" x2="12" y2="130" stroke="#c9a84c" stroke-width="1.5"/>
             <text x="4" y="94" font-family="Playfair Display, serif" font-size="14" fill="#c9a84c" font-weight="600" text-anchor="middle" transform="rotate(-90,4,94)">D</text>
-
-            <!-- L arrow (length) -->
             <line x1="30" y1="145" x2="250" y2="145" stroke="#c9a84c" stroke-width="1.5"/>
             <line x1="30" y1="141" x2="30" y2="149" stroke="#c9a84c" stroke-width="1.5"/>
             <line x1="250" y1="141" x2="250" y2="149" stroke="#c9a84c" stroke-width="1.5"/>
@@ -948,12 +871,13 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
       </div>
 
       <div class="modal-formula-block">
-        <div class="modal-formula-eq">V = 0.7875 × D² × L</div>
+        <!-- ✅ แก้ไข: 0.7875 → 0.7854 ตามเอกสาร (π/4 = 0.7854) -->
+        <div class="modal-formula-eq">V = 0.7854 × D² × L</div>
         <div class="modal-formula-vars">
           <span>V</span> = ปริมาตรไม้ (ลูกบาศก์เมตร)<br>
           <span>D</span> = เส้นผ่านศูนย์กลาง วัดที่ปลายเล็ก (เมตร)<br>
           <span>L</span> = ความยาวท่อนไม้ (เมตร)<br>
-          <span>0.7875</span> = π/4 × 0.9 (ค่าคงที่ของกรมป่าไม้)
+          <span>0.7854</span> = π/4 (ค่าคงที่ตามหลักคณิตศาสตร์)
         </div>
       </div>
       <p class="modal-ref">อ้างอิง: ตารางสำเร็จปริมาตรไม้ท่อน กรมป่าไม้ พ.ศ. 2564 &nbsp;·&nbsp; <a href="https://www.forest.go.th" target="_blank">forest.go.th</a></p>
@@ -961,7 +885,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
   </div>
 </div>
 
-<!-- ═══ MODAL LUMBER ═══ -->
+<!-- MODAL LUMBER -->
 <div class="modal-overlay" id="modal-lumber" onclick="closeModalOutside(event,'modal-lumber')">
   <div class="modal-box">
     <div class="modal-header">
@@ -976,7 +900,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     <div class="modal-body">
       <p class="modal-desc">ใช้สำหรับไม้กระดาน ไม้แผ่น หรือไม้เสาที่ตัดแต่งเป็นทรงสี่เหลี่ยมแล้ว วัดความหนา ความกว้าง และความยาว</p>
 
-      <!-- 3D Lumber Model SVG -->
       <div class="model-section" style="margin-bottom:24px;">
         <svg class="log-svg" width="320" height="170" viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -993,37 +916,25 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
               <stop offset="100%" stop-color="#a87838"/>
             </linearGradient>
           </defs>
-          <!-- Shadow -->
           <ellipse cx="160" cy="155" rx="135" ry="10" fill="rgba(26,58,42,0.12)"/>
-          <!-- Main body (side) -->
           <rect x="40" y="80" width="220" height="55" fill="url(#plankSide)"/>
-          <!-- Top face (parallelogram) -->
           <polygon points="40,50 260,50 280,80 60,80" fill="url(#plankTop)"/>
-          <!-- Right face (parallelogram) -->
           <polygon points="260,50 280,80 280,135 260,105" fill="url(#plankFace)"/>
-          <!-- Wood grain on top -->
           <line x1="70" y1="52" x2="85" y2="78" stroke="rgba(120,80,20,0.2)" stroke-width="1"/>
           <line x1="110" y1="52" x2="125" y2="78" stroke="rgba(120,80,20,0.2)" stroke-width="1"/>
           <line x1="150" y1="52" x2="165" y2="78" stroke="rgba(120,80,20,0.2)" stroke-width="1"/>
           <line x1="190" y1="52" x2="205" y2="78" stroke="rgba(120,80,20,0.2)" stroke-width="1"/>
           <line x1="230" y1="52" x2="245" y2="78" stroke="rgba(120,80,20,0.2)" stroke-width="1"/>
-          <!-- Grain on side -->
           <line x1="40" y1="95" x2="260" y2="95" stroke="rgba(120,80,20,0.15)" stroke-width="0.8"/>
           <line x1="40" y1="115" x2="260" y2="115" stroke="rgba(80,40,10,0.15)" stroke-width="0.8"/>
-
-          <!-- T arrow (thickness) -->
           <line x1="15" y1="50" x2="15" y2="135" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="11" y1="50" x2="19" y2="50" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="11" y1="135" x2="19" y2="135" stroke="#c9a84c" stroke-width="1.5"/>
           <text x="10" y="96" font-family="Playfair Display, serif" font-size="13" fill="#c9a84c" font-weight="600" text-anchor="middle" transform="rotate(-90,10,96)">หนา</text>
-
-          <!-- W arrow (width) - top face -->
           <line x1="38" y1="46" x2="62" y2="46" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="38" y1="42" x2="38" y2="50" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="62" y1="42" x2="62" y2="50" stroke="#c9a84c" stroke-width="1.5"/>
           <text x="50" y="40" font-family="Playfair Display, serif" font-size="12" fill="#c9a84c" font-weight="600" text-anchor="middle">กว้าง</text>
-
-          <!-- L arrow (length) -->
           <line x1="40" y1="150" x2="260" y2="150" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="40" y1="146" x2="40" y2="154" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="260" y1="146" x2="260" y2="154" stroke="#c9a84c" stroke-width="1.5"/>
@@ -1032,6 +943,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
       </div>
 
       <div class="modal-formula-block">
+        <!-- ✅ สูตรไม้แปรรูปถูกต้องตามเอกสาร -->
         <div class="modal-formula-eq" style="font-size:16px;">เมื่อวัดเป็น <span style="color:var(--gold)">นิ้ว</span> (หนา/กว้าง) + เมตร (ยาว)</div>
         <div class="modal-formula-vars" style="margin-bottom:14px;">V = หนา × กว้าง × ยาว × <span>0.0228</span></div>
         <div class="modal-formula-eq" style="font-size:16px;">เมื่อวัดเป็น <span style="color:var(--gold)">เซนติเมตร</span> (หนา/กว้าง) + เมตร (ยาว)</div>
@@ -1042,7 +954,7 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
   </div>
 </div>
 
-<!-- ═══ MODAL STANDING ═══ -->
+<!-- MODAL STANDING -->
 <div class="modal-overlay" id="modal-standing" onclick="closeModalOutside(event,'modal-standing')">
   <div class="modal-box">
     <div class="modal-header">
@@ -1057,7 +969,6 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
     <div class="modal-body">
       <p class="modal-desc">ใช้ประเมินเนื้อไม้ของต้นไม้ที่ยังมีชีวิตอยู่ เพื่อคำนวณมูลค่า วัดเส้นรอบวงที่ระดับอก (1.3 เมตรจากพื้น) และความสูงของลำต้น</p>
 
-      <!-- 3D Tree Model SVG -->
       <div class="model-section" style="margin-bottom:24px;">
         <svg class="log-svg" width="320" height="190" viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -1072,32 +983,21 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
               <stop offset="100%" stop-color="#1a6a2a"/>
             </radialGradient>
           </defs>
-          <!-- Shadow on ground -->
           <ellipse cx="160" cy="178" rx="45" ry="8" fill="rgba(26,58,42,0.15)"/>
-          <!-- Trunk -->
           <rect x="148" y="110" width="24" height="68" rx="3" fill="url(#trunkGrad)"/>
-          <!-- Trunk rings/grain -->
           <line x1="148" y1="130" x2="172" y2="130" stroke="rgba(100,60,20,0.3)" stroke-width="1"/>
           <line x1="148" y1="150" x2="172" y2="150" stroke="rgba(100,60,20,0.3)" stroke-width="1"/>
-          <!-- Canopy (3 layers for depth) -->
           <ellipse cx="160" cy="80" rx="62" ry="48" fill="#1a6a2a" opacity="0.5"/>
           <ellipse cx="160" cy="68" rx="58" ry="50" fill="url(#canopyGrad)"/>
           <ellipse cx="155" cy="52" rx="40" ry="35" fill="#4a9a4a" opacity="0.7"/>
-          <!-- Canopy highlight -->
           <ellipse cx="148" cy="44" rx="22" ry="16" fill="#6ab86a" opacity="0.4"/>
-
-          <!-- Girth measurement line at breast height (1.3m) -->
           <line x1="138" y1="132" x2="182" y2="132" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="4,3"/>
           <text x="188" y="136" font-family="Sarabun, sans-serif" font-size="11" fill="#c9a84c" font-weight="600">ระดับอก</text>
-
-          <!-- Height arrow -->
           <line x1="225" y1="110" x2="225" y2="178" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="221" y1="110" x2="229" y2="110" stroke="#c9a84c" stroke-width="1.5"/>
           <line x1="221" y1="178" x2="229" y2="178" stroke="#c9a84c" stroke-width="1.5"/>
           <text x="248" y="148" font-family="Playfair Display, serif" font-size="13" fill="#c9a84c" font-weight="600" text-anchor="middle" transform="rotate(90,248,148)">สูง (ม.)</text>
-
-          <!-- Girth arrow (circumference around trunk) -->
-          <path d="M 110 132 Q 100 120 110 108 Q 160 95 210 108 Q 220 120 210 132" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="none"/>
+          <path d="M 110 132 Q 100 120 110 108 Q 160 95 210 108 Q 220 120 210 132" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
           <text x="160" y="102" font-family="Playfair Display, serif" font-size="12" fill="#c9a84c" font-weight="600" text-anchor="middle">โต (ซม.)</text>
         </svg>
       </div>
@@ -1126,7 +1026,6 @@ function switchTab(id) {
   document.getElementById('source-lumber').style.display  = id==='lumber'   ? 'flex' : 'none';
   document.getElementById('source-standing').style.display= id==='standing' ? 'flex' : 'none';
 }
-// init source strips
 document.getElementById('source-lumber').style.display='none';
 document.getElementById('source-standing').style.display='none';
 
@@ -1143,37 +1042,33 @@ function fmt(v, dec) {
 }
 
 // ── LOG ──
-let logFormula = '2564'; // '2564' = D-based, '2510' = G-based
+let logFormula = '2564';
 
 function setLogFormula(f) {
   logFormula = f;
   const is2510 = f === '2510';
   document.getElementById('log-f-2510').classList.toggle('active', is2510);
   document.getElementById('log-f-2564').classList.toggle('active', !is2510);
-
-  // Show/hide input blocks
   document.getElementById('log-inputs-2510').style.display = is2510 ? 'block' : 'none';
   document.getElementById('log-inputs-2564').style.display = is2510 ? 'none' : 'block';
-
-  // Show/hide regulation note
   document.getElementById('log-reg-note').style.display = is2510 ? 'block' : 'none';
 
-  // Update formula chip
   if (is2510) {
+    // ✅ สูตร G-based: V = G²/4π × L = 0.0795 × G² × L
     document.getElementById('log-formula-eq').textContent = 'V = 0.0795 × G² × L';
     document.getElementById('log-formula-vars').innerHTML = '<b>G</b> = เส้นรอบวงกึ่งกลางท่อน (ม.) &nbsp;·&nbsp; <b>L</b> = ความยาว (ม.)';
     document.getElementById('log-source-text').textContent = 'อ้างอิง: ระเบียบกรมป่าไม้ ว่าด้วยการตรวจวัด พ.ศ. 2510 ข้อ 11(1)';
     document.getElementById('log-empty').textContent = 'กรอกค่า G และ L เพื่อคำนวณ';
     document.getElementById('log-result-label').textContent = 'ปริมาตรไม้ท่อน (ระเบียบ พ.ศ. 2510)';
   } else {
-    document.getElementById('log-formula-eq').textContent = 'V = 0.7875 × D² × L';
+    // ✅ สูตร D-based: V = π/4 × D² × L = 0.7854 × D² × L
+    document.getElementById('log-formula-eq').textContent = 'V = 0.7854 × D² × L';
     document.getElementById('log-formula-vars').innerHTML = '<b>D</b> = เส้นผ่านศูนย์กลาง (ม.) &nbsp;·&nbsp; <b>L</b> = ความยาว (ม.)';
     document.getElementById('log-source-text').textContent = 'อ้างอิง: ตารางสำเร็จปริมาตรไม้ท่อน กรมป่าไม้ (2564)';
     document.getElementById('log-empty').textContent = 'กรอกค่า D และ L เพื่อคำนวณ';
     document.getElementById('log-result-label').textContent = 'ปริมาตรไม้ท่อน (ตาราง พ.ศ. 2564)';
   }
 
-  // Reset result
   document.getElementById('log-empty').style.display = 'block';
   document.getElementById('log-result').style.display = 'none';
   document.getElementById('log-err').classList.remove('show');
@@ -1211,9 +1106,10 @@ function calcLog() {
     if (!hasError) {
       const D = toM(dRaw, dUnit);
       const L = toM(lRaw, lUnit);
-      V = 0.7875 * D * D * L;
+      // ✅ แก้ไข: ใช้ 0.7854 (π/4) ตามมาตรฐานกรมป่าไม้
+      V = 0.7854 * D * D * L;
       breakdown = `D = <span>${D.toFixed(4)} ม.</span> &nbsp;·&nbsp; L = <span>${L.toFixed(4)} ม.</span><br>` +
-                  `0.7875 × ${D.toFixed(4)}² × ${L.toFixed(4)} = <span>${fmt(V)} ลบ.ม.</span>`;
+                  `0.7854 × ${D.toFixed(4)}² × ${L.toFixed(4)} = <span>${fmt(V)} ลบ.ม.</span>`;
     }
   } else {
     const gRaw = parseFloat(document.getElementById('log-g').value);
@@ -1225,9 +1121,8 @@ function calcLog() {
     if (!hasError) {
       const G = toM(gRaw, gUnit);
       const L = toM(lRaw, lUnit);
+      // ✅ สูตร G-based: V = G²/4π × L = 0.0795 × G² × L (ตามเอกสาร)
       V = 0.0795 * G * G * L;
-      // also show G/49 × L equivalent
-      const G49 = (G * G / 49) * L;
       breakdown = `G = <span>${G.toFixed(4)} ม.</span> &nbsp;·&nbsp; L = <span>${L.toFixed(4)} ม.</span><br>` +
                   `0.0795 × ${G.toFixed(4)}² × ${L.toFixed(4)} = <span>${fmt(V)} ลบ.ม.</span>`;
     }
@@ -1250,6 +1145,7 @@ function setLumberUnit(u) {
   document.getElementById('lu-in').classList.toggle('active', u==='in');
   document.getElementById('lu-cm').classList.toggle('active', u==='cm');
   const isIn = u==='in';
+  // ✅ สูตรไม้แปรรูปถูกต้องตามเอกสาร
   document.getElementById('lumber-eq').textContent = isIn
     ? 'V = หนา × กว้าง × ยาว × 0.0228'
     : 'V = (หนา × กว้าง × ยาว) ÷ 10,000';
@@ -1263,6 +1159,7 @@ function setLumberUnit(u) {
   document.getElementById('lbl-w').textContent = isIn ? 'ความกว้าง (นิ้ว)' : 'ความกว้าง (ซม.)';
   calcLumber();
 }
+
 function calcLumber() {
   const t = parseFloat(document.getElementById('lum-t').value);
   const w = parseFloat(document.getElementById('lum-w').value);
@@ -1277,9 +1174,11 @@ function calcLumber() {
   errEl.classList.remove('show');
   let V, breakdown;
   if (lumberUnit==='in') {
+    // ✅ V = หนา(นิ้ว) × กว้าง(นิ้ว) × ยาว(ม.) × 0.0228
     V = t * w * l * 0.0228;
     breakdown = `${t} × ${w} × ${l} × 0.0228 = <span>${fmt(V)} ลบ.ม.</span>`;
   } else {
+    // ✅ V = (หนา(ซม.) × กว้าง(ซม.) × ยาว(ม.)) ÷ 10,000
     V = (t * w * l) / 10000;
     breakdown = `(${t} × ${w} × ${l}) ÷ 10,000 = <span>${fmt(V)} ลบ.ม.</span>`;
   }
@@ -1300,6 +1199,7 @@ function calcStanding() {
     emptyEl.style.display='block'; resEl.style.display='none'; return;
   }
   errEl.classList.remove('show');
+  // ✅ V = (โต² × สูง × 7.96) ÷ 1,000,000
   const V = (g * g * h * 7.96) / 1000000;
   document.getElementById('st-v').textContent = fmt(V);
   document.getElementById('st-breakdown').innerHTML =
